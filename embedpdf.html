@@ -1,56 +1,36 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2566">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 10.7px 0.0px; line-height: 18.4px; font: 16.0px Helvetica; color: #000000; -webkit-text-stroke: #000000; min-height: 19.0px}
-    p.p2 {margin: 0.0px 0.0px 10.7px 0.0px; line-height: 18.4px; font: 16.0px Helvetica; color: #000000; -webkit-text-stroke: #000000}
-    span.s1 {font-kerning: none}
-    span.s2 {font-kerning: none; color: #000000}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Report</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"></script>
 </head>
 <body>
-<p class="p1"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p2"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p2"><span class="s1">&lt;head&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;title&gt;View Report&lt;/title&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.10.377/pdf.min.js"&gt;&lt;/script&gt;</span></p>
-<p class="p2"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p2"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h1&gt;View the Full Report&lt;/h1&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="pdf-viewer" style="width: 100%; height: 600px;"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;script&gt;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>const url = 'https://github.com/NCLP-2024/gh-pages/raw/main/docs/report%201.5%20final.pdf';//</span><span class="s2">report%201.5%20final.pdf</span></p>
-<p class="p1"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>pdfjsLib.getDocument(url).promise.then(function (pdf) {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span>pdf.getPage(1).then(function (page) {</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span>const scale = 1.5;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span>const viewport = page.getViewport({ scale: scale });</span></p>
-<p class="p1"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span>const canvas = document.createElement('canvas');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span>const context = canvas.getContext('2d');</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span>canvas.height = viewport.height;</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span>canvas.width = viewport.width;</span></p>
-<p class="p1"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span>page.render({</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span>canvasContext: context,</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                    </span>viewport: viewport</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span>});</span></p>
-<p class="p1"><span class="s1"></span><br></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">                </span>document.getElementById('pdf-viewer').appendChild(canvas);</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">            </span>});</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">        </span>});</span></p>
-<p class="p2"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</span></p>
-<p class="p2"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p2"><span class="s1">&lt;/html&gt;</span></p>
+    <h1>View the Full Report</h1>
+    <div id="pdf-viewer" style="width: 100%; height: 600px;"></div>
+
+    <script>
+        const url = 'https://github.com/NCLP-2024/gh-pages/raw/main/docs/report%201.5%20final.pdf';
+
+        pdfjsLib.getDocument(url).promise.then(function (pdf) {
+            pdf.getPage(1).then(function (page) {
+                const scale = 1.5;
+                const viewport = page.getViewport({ scale: scale });
+
+                const canvas = document.createElement('canvas');
+                const context = canvas.getContext('2d');
+                canvas.height = viewport.height;
+                canvas.width = viewport.width;
+
+                page.render({
+                    canvasContext: context,
+                    viewport: viewport
+                });
+
+                document.getElementById('pdf-viewer').appendChild(canvas);
+            });
+        });
+    </script>
 </body>
 </html>
